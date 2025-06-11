@@ -1,9 +1,67 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Générateur de noms de groupes </title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffeaa7, #fab1a0);
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #2d3436;
+        }
+        #groupName {
+            font-size: 2rem;
+            color: #d63031;
+            margin: 20px;
+            font-weight: bold;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #0984e3;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #74b9ff;
+        }
+    </style>
+</head>
 <body>
+    <h1>🤘 Générateur de noms de groupes originaux</h1>
+    <p id="groupName">Clique sur le bouton pour générer un nom !</p>
+    <button onclick="generateGroupName()">Générer un nom</button>
 
-<p>Bienvenue </p>
-<a href="index.html">Pour retourner a l'accueil.</a>
+    <script>
+        const animaux = [
+            "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec", 
+            "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton", 
+            "Casoar", "Vison", "Binturong", "Manchot empereur", "Cacatoès", 
+            "Galago", "Wombat", "Kiwi"
+        ];
 
+        const adjectifs = [
+            "Sybillin", "Amphigourique", "Fulgurant", "Ineffable", "Surréaliste", 
+            "Onirique", "Insaisissable", "Hypnagogique", "Antédiluvien", 
+            "Anachronique", "Chiaroscuro", "Occulte", "Crépusculaire", 
+            "Disparate", "Insolite", "Chimérique", "Incandescent", 
+            "Spectral", "Périlleux", "Ubiquitaire"
+        ];
+
+        function generateGroupName() {
+            const animal = animaux[Math.floor(Math.random() * animaux.length)];
+            const adjectif = adjectifs[Math.floor(Math.random() * adjectifs.length)];
+            document.getElementById("groupName").innerText = `${animal} ${adjectif}`;
+        }
+    </script>
+	<a href="index.html">Pour retourner a l'accueil.</a>
 </body>
 </html>
