@@ -1,27 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Générateur de noms de groupes </title>
+    <title>Page Fun : Générateur et Horoscope Physique</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #ffeaa7, #fab1a0);
-            text-align: center;
-            padding: 50px;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
+        header, footer {
+            background-color: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
             color: #2d3436;
         }
-        #groupName {
-            font-size: 2rem;
-            color: #d63031;
-            margin: 20px;
-            font-weight: bold;
-        }
         button {
-            padding: 12px 24px;
+            padding: 10px 20px;
             background-color: #0984e3;
             border: none;
             color: white;
@@ -33,14 +44,64 @@
         button:hover {
             background-color: #74b9ff;
         }
+        #groupName {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #d63031;
+            margin-top: 10px;
+        }
+        #horoscopeResult {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #6c5ce7;
+            margin-top: 10px;
+        }
+        select {
+            padding: 8px 12px;
+            font-size: 1rem;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>🤘 Générateur de noms de groupes originaux</h1>
-    <p id="groupName">Clique sur le bouton pour générer un nom !</p>
-    <button onclick="generateGroupName()">Générer un nom</button>
+    <header>
+        <h1>🌟 Page Fun : Générateur et Horoscope Physique 🌟</h1>
+    </header>
+    <main>
+        <section id="generator">
+            <h2>🎸 Générateur de noms de groupes</h2>
+            <p id="groupName">Clique sur le bouton pour générer un nom !</p>
+            <button onclick="generateGroupName()">Générer un nom</button>
+        </section>
+
+        <section id="horoscope">
+            <h2>🔮 Horoscope Physique Humoristique</h2>
+            <label for="zodiac">Sélectionne ton signe astrologique :</label>
+            <select id="zodiac">
+                <option value="">--Choisir un signe--</option>
+                <option value="Bélier">Bélier</option>
+                <option value="Taureau">Taureau</option>
+                <option value="Gémeaux">Gémeaux</option>
+                <option value="Cancer">Cancer</option>
+                <option value="Lion">Lion</option>
+                <option value="Vierge">Vierge</option>
+                <option value="Balance">Balance</option>
+                <option value="Scorpion">Scorpion</option>
+                <option value="Sagittaire">Sagittaire</option>
+                <option value="Capricorne">Capricorne</option>
+                <option value="Verseau">Verseau</option>
+                <option value="Poissons">Poissons</option>
+            </select>
+            <button onclick="showHoroscope()">Voir mon horoscope !</button>
+            <p id="horoscopeResult"></p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Ma Page Fun
+    </footer>
 
     <script>
+        // Générateur de noms de groupes
         const animaux = [
             "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec", 
             "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton", 
@@ -61,7 +122,30 @@
             const adjectif = adjectifs[Math.floor(Math.random() * adjectifs.length)];
             document.getElementById("groupName").innerText = `${animal} ${adjectif}`;
         }
+
+        // Horoscope Physique Humoristique
+        const horoscopes = {
+            "Bélier": "Tu es une boule d'énergie cinétique prête à bondir ! Attention à la force de frottement qui pourrait ralentir tes plans !",
+            "Taureau": "Comme un solide rigide, tu résistes à la déformation mais attention aux torsions du quotidien.",
+            "Gémeaux": "Tu es un électron libre : imprévisible, changeant et plein de surprises !",
+            "Cancer": "La tension superficielle est forte chez toi : tu restes en surface, mais attention aux capillarités émotionnelles !",
+            "Lion": "Tu brilles comme une étoile et ton rayonnement chauffe les cœurs, mais gare à l'effet Doppler avec tes proches.",
+            "Vierge": "Ton entropie est faible : tu cherches l'ordre parfait, mais n'oublie pas que le chaos est inévitable !",
+            "Balance": "Ton équilibre est fragile : un petit couple de forces suffit à te faire osciller.",
+            "Scorpion": "Ton magnétisme est puissant : tu attires les gens comme un aimant... mais parfois tu les repousses aussi !",
+            "Sagittaire": "Tu avances à la vitesse de la lumière (enfin, presque). Attention à la relativité du temps avec tes amis.",
+            "Capricorne": "Tu es stable comme une montagne : la gravité est de ton côté, mais gare à l'érosion du moral.",
+            "Verseau": "Tu es une onde stationnaire de créativité. Les interférences peuvent perturber ta fréquence.",
+            "Poissons": "Ton état est quantique : parfois vague, parfois précis, mais jamais vraiment mesurable !"
+        };
+
+        function showHoroscope() {
+            const zodiac = document.getElementById("zodiac").value;
+            const result = horoscopes[zodiac] || "Sélectionne ton signe pour voir ton horoscope !";
+            document.getElementById("horoscopeResult").innerText = result;
+        }
     </script>
 	<a href="index.html">Pour retourner a l'accueil.</a>
 </body>
 </html>
+
