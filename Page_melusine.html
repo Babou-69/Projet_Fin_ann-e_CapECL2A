@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page melusine</title>
+    <title>Page Melusine</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -61,11 +61,19 @@
             font-size: 1rem;
             margin: 10px;
         }
+        #daily-fact a {
+            color: #0984e3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #daily-fact a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>🌟 Bienvenue🌟</h1>
+        <h1>🌟 Bienvenue 🌟</h1>
     </header>
     <main>
         <section id="generator">
@@ -95,25 +103,32 @@
             <button onclick="showHoroscope()">Voir mon horoscope !</button>
             <p id="horoscopeResult"></p>
         </section>
+
+        <section id="daily-fact">
+            <h2>🔬 Fait scientifique du jour</h2>
+            <p id="factText">Clique pour découvrir un fait</p>
+            <button onclick="loadDailyFact()">Découvrir</button>
+            <p><a id="factLink" href="#" target="_blank" style="display:none;">Lire l'article complet</a></p>
+        </section>
     </main>
     <footer>
-        &copy; 2025 Ma Page 
+        &copy; 2025 Ma Page
     </footer>
 
     <script>
         // Générateur de noms de groupes
         const animaux = [
-            "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec", 
-            "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton", 
-            "Casoar", "Vison", "Binturong", "Manchot empereur", "Cacatoès", 
+            "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec",
+            "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton",
+            "Casoar", "Vison", "Binturong", "Manchot empereur", "Cacatoès",
             "Galago", "Wombat", "Kiwi"
         ];
 
         const adjectifs = [
-            "Sybillin", "Amphigourique", "Fulgurant", "Ineffable", "Surréaliste", 
-            "Onirique", "Insaisissable", "Hypnagogique", "Antédiluvien", 
-            "Anachronique", "Chiaroscuro", "Occulte", "Crépusculaire", 
-            "Disparate", "Insolite", "Chimérique", "Incandescent", 
+            "Sybillin", "Amphigourique", "Fulgurant", "Ineffable", "Surréaliste",
+            "Onirique", "Insaisissable", "Hypnagogique", "Antédiluvien",
+            "Anachronique", "Chiaroscuro", "Occulte", "Crépusculaire",
+            "Disparate", "Insolite", "Chimérique", "Incandescent",
             "Spectral", "Périlleux", "Ubiquitaire"
         ];
 
@@ -144,8 +159,33 @@
             const result = horoscopes[zodiac] || "Sélectionne ton signe pour voir ton horoscope !";
             document.getElementById("horoscopeResult").innerText = result;
         }
+
+        // Fait scientifique du jour
+        const dailyFacts = [
+            {
+                text: "Les pieuvres ont trois cœurs : deux pompent le sang vers les branchies, le troisième vers le reste du corps. Et lorsqu'elles nagent, l’un des cœurs s’arrête !",
+                link: "https://www.futura-sciences.com/planete/questions-reponses/animaux-pourquoi-pieuvre-trois-coeurs-14999/"
+            },
+            {
+                text: "Les requins existent depuis plus de 400 millions d’années, bien avant les arbres.",
+                link: "https://www.nationalgeographic.fr/animaux/les-requins-ont-ils-existe-avant-les-arbres"
+            },
+            {
+                text: "Les bananes sont des baies, alors que les fraises ne le sont pas, selon la classification botanique.",
+                link: "https://www.liberation.fr/checknews/2019/05/22/les-bananes-sont-elles-des-baies-et-les-fraises-ne-le-sont-elles-pas_1739436/"
+            }
+        ];
+
+        function loadDailyFact() {
+            const fact = dailyFacts[Math.floor(Math.random() * dailyFacts.length)];
+            document.getElementById("factText").innerText = fact.text;
+            const a = document.getElementById("factLink");
+            a.href = fact.link;
+            a.innerText = "Lire l'article complet";
+            a.style.display = "inline";
+        }
     </script>
-	<a href="index.html">Pour retourner a l'accueil.</a>
+    <a href="index.html">Pour retourner à l'accueil.</a>
 </body>
 </html>
 
