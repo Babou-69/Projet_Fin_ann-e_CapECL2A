@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Accueil</title>
+  <title>Accueil avec confettis illimités</title>
   <style>
     body {
       margin: 0;
@@ -15,6 +15,7 @@
       align-items: center;
       height: 100vh;
       overflow-x: hidden;
+      position: relative;
     }
     .container {
       background-color: white;
@@ -24,6 +25,7 @@
       text-align: center;
       position: relative;
       z-index: 10;
+      max-width: 400px;
     }
     h1 {
       color: #2c3e50;
@@ -49,20 +51,20 @@
         width: 100%;
       }
     }
-    /* Confettis style */
+    /* Styles des confettis */
     .confetti {
       position: fixed;
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background-color: red;
-      opacity: 0.7;
+      opacity: 0.8;
       top: 0;
       pointer-events: none;
       z-index: 9999;
       border-radius: 3px;
-      animation-name: fall;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
+      will-change: transform;
     }
     @keyframes fall {
       0% {
@@ -79,7 +81,7 @@
 <body>
   <div class="container">
     <h1>Bienvenue sur notre magnifique site web</h1>
-    <p>Découvrez les passions et univers de chacun à travers nos pages personnelles ! </p>
+    <p>Découvrez les passions et univers de chacun à travers nos pages personnelles !</p>
 
     <a href="Baptiste.html">Page de Baptiste</a>
     <a href="Page_Blandine.html">Page de Blandine</a>
@@ -87,33 +89,31 @@
   </div>
 
   <script>
-    // Fonction pour créer des confettis aléatoires
+    const colors = ['#e74c3c', '#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#e67e22'];
+
     function createConfetti() {
-      const colors = ['#e74c3c', '#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#e67e22'];
       const confetti = document.createElement('div');
       confetti.classList.add('confetti');
       confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
       confetti.style.left = Math.random() * window.innerWidth + 'px';
-      confetti.style.animationDuration = 3 + Math.random() * 2 + 's';
-      confetti.style.width = confetti.style.height = 7 + Math.random() * 8 + 'px';
+      const size = 7 + Math.random() * 8;
+      confetti.style.width = size + 'px';
+      confetti.style.height = size + 'px';
       confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+      confetti.style.animationName = 'fall';
+      confetti.style.animationDuration = (3 + Math.random() * 3) + 's';
+      confetti.style.animationDelay = '0s';
+
       document.body.appendChild(confetti);
-      setTimeout(() => {
+
+      // Supprime le confetti après la fin de l'animation pour ne pas surcharger le DOM
+      confetti.addEventListener('animationend', () => {
         confetti.remove();
-      }, 5000);
+      });
     }
 
-    // Créer des confettis régulièrement pendant 2 secondes après le chargement
-    function launchConfetti() {
-      let count = 0;
-      const interval = setInterval(() => {
-        createConfetti();
-        count++;
-        if (count > 100) clearInterval(interval);
-      }, 20);
-    }
-
-    window.onload = launchConfetti;
+    // Créer des confettis en continu (20 par seconde)
+    setInterval(createConfetti, 50);
   </script>
 </body>
 </html>
