@@ -224,6 +224,11 @@
             document.getElementById("illusionImage").src = illusion.image;
             document.getElementById("illusionDescription").innerText = illusion.description;
         }
+
+        // Affiche une illusion dès le chargement de la page
+        window.onload = function() {
+            showIllusion();
+        };
     </script>
     <a href="index.html">Pour retourner à l'accueil.</a>
 </body>
