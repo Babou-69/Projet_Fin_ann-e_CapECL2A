@@ -159,28 +159,28 @@
         }
 
         // Faits scientifiques
-        const scienceFacts = [
-            {
-                text: "🪐 Une journée sur Vénus dure plus longtemps qu’une année. <a href='https://solarsystem.nasa.gov/planets/venus/overview/' target='_blank'>En savoir plus</a>."
-            },
-            {
-                text: "🍌 Les bananes sont légèrement radioactives à cause du potassium-40. <a href='https://www.livescience.com/banana-radioactivity.html' target='_blank'>Lire l'article</a>."
-            },
-            {
-                text: "✨ Nous sommes faits de poussières d’étoiles. Les atomes de notre corps viennent des supernovas. <a href='https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/' target='_blank'>Plus d'infos</a>."
-            },
-            {
-                text: "🐙 Les pieuvres ont trois cœurs ! Deux pompent le sang vers les branchies et un pour le reste du corps. <a href='https://ocean.si.edu/ocean-life/invertebrates/octopus' target='_blank'>Source</a>."
-            },
-            {
-                text: "💎 Il pleut des diamants sur Neptune et Saturne ! <a href='https://www.livescience.com/diamond-rain-on-neptune-saturn.html' target='_blank'>Découvrir</a>."
-            }
-        ];
+       const scienceFacts = [
+			{
+				text: "🪐 Une journée sur Vénus dure plus longtemps qu’une année. <a href='https://solarsystem.nasa.gov/planets/venus/overview/' target='_blank'>En savoir plus</a>."
+			},
+			{
+				text: "🍌 Les bananes sont légèrement radioactives à cause du potassium‑40. <a href='https://en.wikipedia.org/wiki/Banana_equivalent_dose' target='_blank'>Lire l'article (Wikipedia)</a>."
+			},
+			{
+				text: "✨ Nous sommes faits de poussières d’étoiles. Les atomes de notre corps viennent des supernovas. <a href='https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/' target='_blank'>Plus d'infos</a>."
+			},
+			{
+				text: "🐙 Les pieuvres ont trois cœurs ! Deux pompent le sang vers les branchies et un pour le reste du corps. <a href='https://ocean.si.edu/ocean-life/invertebrates/octopus' target='_blank'>Source</a>."
+			},
+			{
+				text: "💎 Il pleut des diamants sur Neptune et Uranus ! <a href='https://www.livescience.com/diamond-rain-atmosphere-uranus-neptune' target='_blank'>Découvrir (LiveScience)</a>."
+			}
+		];
+		function showScienceFact() {
+			const i = Math.floor(Math.random()*scienceFacts.length);
+			document.getElementById("scienceFactText").innerHTML = scienceFacts[i].text;
+		}
 
-        function showScienceFact() {
-            const randomIndex = Math.floor(Math.random() * scienceFacts.length);
-            document.getElementById("scienceFactText").innerHTML = scienceFacts[randomIndex].text;
-        }
     </script>
     <a href="index.html">Pour retourner à l'accueil.</a>
 </body>
