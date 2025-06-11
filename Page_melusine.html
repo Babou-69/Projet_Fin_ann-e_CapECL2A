@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page Melusine</title>
+    <title>Page melusine</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -61,19 +61,18 @@
             font-size: 1rem;
             margin: 10px;
         }
-        #daily-fact a {
+        a {
             color: #0984e3;
             text-decoration: none;
-            font-weight: bold;
         }
-        #daily-fact a:hover {
+        a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🌟 Bienvenue 🌟</h1>
+        <h1>🌟 Bienvenue🌟</h1>
     </header>
     <main>
         <section id="generator">
@@ -104,31 +103,30 @@
             <p id="horoscopeResult"></p>
         </section>
 
-        <section id="daily-fact">
+        <section id="scienceFact">
             <h2>🔬 Fait scientifique du jour</h2>
-            <p id="factText">Clique pour découvrir un fait</p>
-            <button onclick="loadDailyFact()">Découvrir</button>
-            <p><a id="factLink" href="#" target="_blank" style="display:none;">Lire l'article complet</a></p>
+            <p id="scienceFactText">Clique sur le bouton pour découvrir un fait scientifique fascinant !</p>
+            <button onclick="showScienceFact()">Nouveau fait</button>
         </section>
     </main>
     <footer>
-        &copy; 2025 Ma Page
+        &copy; 2025 Ma Page 
     </footer>
 
     <script>
         // Générateur de noms de groupes
         const animaux = [
-            "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec",
-            "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton",
-            "Casoar", "Vison", "Binturong", "Manchot empereur", "Cacatoès",
+            "Axolotl", "Narval", "Quokka", "Okapi", "Ornithorynque", "Fennec", 
+            "Blobfish", "Pangolin", "Tarsier", "Kinkajou", "Tamanoir", "Glouton", 
+            "Casoar", "Vison", "Binturong", "Manchot empereur", "Cacatoès", 
             "Galago", "Wombat", "Kiwi"
         ];
 
         const adjectifs = [
-            "Sybillin", "Amphigourique", "Fulgurant", "Ineffable", "Surréaliste",
-            "Onirique", "Insaisissable", "Hypnagogique", "Antédiluvien",
-            "Anachronique", "Chiaroscuro", "Occulte", "Crépusculaire",
-            "Disparate", "Insolite", "Chimérique", "Incandescent",
+            "Sybillin", "Amphigourique", "Fulgurant", "Ineffable", "Surréaliste", 
+            "Onirique", "Insaisissable", "Hypnagogique", "Antédiluvien", 
+            "Anachronique", "Chiaroscuro", "Occulte", "Crépusculaire", 
+            "Disparate", "Insolite", "Chimérique", "Incandescent", 
             "Spectral", "Périlleux", "Ubiquitaire"
         ];
 
@@ -160,29 +158,28 @@
             document.getElementById("horoscopeResult").innerText = result;
         }
 
-        // Fait scientifique du jour
-        const dailyFacts = [
+        // Faits scientifiques
+        const scienceFacts = [
             {
-                text: "Les pieuvres ont trois cœurs : deux pompent le sang vers les branchies, le troisième vers le reste du corps. Et lorsqu'elles nagent, l’un des cœurs s’arrête !",
-                link: "https://www.futura-sciences.com/planete/questions-reponses/animaux-pourquoi-pieuvre-trois-coeurs-14999/"
+                text: "🪐 Une journée sur Vénus dure plus longtemps qu’une année. <a href='https://solarsystem.nasa.gov/planets/venus/overview/' target='_blank'>En savoir plus</a>."
             },
             {
-                text: "Les requins existent depuis plus de 400 millions d’années, bien avant les arbres.",
-                link: "https://www.nationalgeographic.fr/animaux/les-requins-ont-ils-existe-avant-les-arbres"
+                text: "🍌 Les bananes sont légèrement radioactives à cause du potassium-40. <a href='https://www.livescience.com/banana-radioactivity.html' target='_blank'>Lire l'article</a>."
             },
             {
-                text: "Les bananes sont des baies, alors que les fraises ne le sont pas, selon la classification botanique.",
-                link: "https://www.liberation.fr/checknews/2019/05/22/les-bananes-sont-elles-des-baies-et-les-fraises-ne-le-sont-elles-pas_1739436/"
+                text: "✨ Nous sommes faits de poussières d’étoiles. Les atomes de notre corps viennent des supernovas. <a href='https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/' target='_blank'>Plus d'infos</a>."
+            },
+            {
+                text: "🐙 Les pieuvres ont trois cœurs ! Deux pompent le sang vers les branchies et un pour le reste du corps. <a href='https://ocean.si.edu/ocean-life/invertebrates/octopus' target='_blank'>Source</a>."
+            },
+            {
+                text: "💎 Il pleut des diamants sur Neptune et Saturne ! <a href='https://www.livescience.com/diamond-rain-on-neptune-saturn.html' target='_blank'>Découvrir</a>."
             }
         ];
 
-        function loadDailyFact() {
-            const fact = dailyFacts[Math.floor(Math.random() * dailyFacts.length)];
-            document.getElementById("factText").innerText = fact.text;
-            const a = document.getElementById("factLink");
-            a.href = fact.link;
-            a.innerText = "Lire l'article complet";
-            a.style.display = "inline";
+        function showScienceFact() {
+            const randomIndex = Math.floor(Math.random() * scienceFacts.length);
+            document.getElementById("scienceFactText").innerHTML = scienceFacts[randomIndex].text;
         }
     </script>
     <a href="index.html">Pour retourner à l'accueil.</a>
