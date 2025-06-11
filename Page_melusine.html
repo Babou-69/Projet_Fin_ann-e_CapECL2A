@@ -16,9 +16,9 @@
             text-align: center;
             padding: 20px;
         }
-		header h1 {
-			color: white; /* Ajout pour forcer la couleur du titre en blanc */
-		}
+        header h1 {
+            color: white;
+        }
         main {
             max-width: 800px;
             margin: auto;
@@ -71,6 +71,15 @@
         a:hover {
             text-decoration: underline;
         }
+        #illusionContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #illusionImage {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -79,7 +88,7 @@
     </header>
     <main>
         <section id="generator">
-            <h2>🎸 Générateur de noms de groupes</h2>
+            <h2>🚀 Générateur de noms de groupes</h2>
             <p id="groupName">Clique sur le bouton pour générer un nom !</p>
             <button onclick="generateGroupName()">Générer un nom</button>
         </section>
@@ -110,6 +119,15 @@
             <h2>🔬 Fait scientifique du jour</h2>
             <p id="scienceFactText">Clique sur le bouton pour découvrir un fait scientifique fascinant !</p>
             <button onclick="showScienceFact()">Nouveau fait</button>
+        </section>
+
+        <section id="opticalIllusions">
+            <h2>🎨 Illusions d'optique</h2>
+            <div id="illusionContainer">
+                <img id="illusionImage" src="" alt="Illusion d'optique">
+                <p id="illusionDescription">Clique sur le bouton pour découvrir une illusion d'optique !</p>
+            </div>
+            <button onclick="showIllusion()">Nouvelle illusion</button>
         </section>
     </main>
     <footer>
@@ -162,28 +180,50 @@
         }
 
         // Faits scientifiques
-       const scienceFacts = [
-			{
-				text: "🪐 Une journée sur Vénus dure plus longtemps qu’une année. <a href='https://solarsystem.nasa.gov/planets/venus/overview/' target='_blank'>En savoir plus</a>."
-			},
-			{
-				text: "🍌 Les bananes sont légèrement radioactives à cause du potassium‑40. <a href='https://en.wikipedia.org/wiki/Banana_equivalent_dose' target='_blank'>Lire l'article (Wikipedia)</a>."
-			},
-			{
-				text: "✨ Nous sommes faits de poussières d’étoiles. Les atomes de notre corps viennent des supernovas. <a href='https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/' target='_blank'>Plus d'infos</a>."
-			},
-			{
-			    text: "🐙 Les pieuvres ont trois cœurs ! Deux pompent le sang vers les branchies et un troisième vers le reste du corps. <a href='https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/' target='_blank'>Source Smithsonian</a>."
-			},
-			{
-				text: "💎 Il pleut des diamants sur Neptune et Uranus ! <a href='https://www.livescience.com/diamond-rain-atmosphere-uranus-neptune' target='_blank'>Découvrir (LiveScience)</a>."
-			}
-		];
-		function showScienceFact() {
-			const i = Math.floor(Math.random()*scienceFacts.length);
-			document.getElementById("scienceFactText").innerHTML = scienceFacts[i].text;
-		}
+        const scienceFacts = [
+            {
+                text: "🪐 Une journée sur Vénus dure plus longtemps qu’une année. <a href='https://solarsystem.nasa.gov/planets/venus/overview/' target='_blank'>En savoir plus</a>."
+            },
+            {
+                text: "🍌 Les bananes sont légèrement radioactives à cause du potassium‑40. <a href='https://en.wikipedia.org/wiki/Banana_equivalent_dose' target='_blank'>Lire l'article (Wikipedia)</a>."
+            },
+            {
+                text: "✨ Nous sommes faits de poussières d’étoiles. Les atomes de notre corps viennent des supernovas. <a href='https://science.nasa.gov/astrophysics/focus-areas/how-do-stars-form-and-evolve/' target='_blank'>Plus d'infos</a>."
+            },
+            {
+                text: "🐙 Les pieuvres ont trois cœurs ! Deux pompent le sang vers les branchies et un troisième vers le reste du corps. <a href='https://www.smithsonianmag.com/science-nature/ten-wild-facts-about-octopuses-they-have-three-hearts-big-brains-and-blue-blood-7625828/' target='_blank'>Source Smithsonian</a>."
+            },
+            {
+                text: "💎 Il pleut des diamants sur Neptune et Uranus ! <a href='https://www.livescience.com/diamond-rain-atmosphere-uranus-neptune' target='_blank'>Découvrir (LiveScience)</a>."
+            }
+        ];
+        function showScienceFact() {
+            const i = Math.floor(Math.random() * scienceFacts.length);
+            document.getElementById("scienceFactText").innerHTML = scienceFacts[i].text;
+        }
 
+        // Illusions d'optique
+        const illusions = [
+            {
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Cafe_wall_illusion.svg/400px-Cafe_wall_illusion.svg.png",
+                description: "☕ Illusion du mur de café : les lignes horizontales semblent inclinées, mais elles sont parfaitement parallèles !"
+            },
+            {
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Poggendorff_illusion.svg/400px-Poggendorff_illusion.svg.png",
+                description: "🔶 Illusion de Poggendorff : la ligne droite semble décalée, mais elle est parfaitement alignée."
+            },
+            {
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Hermann_grid_illusion.svg/400px-Hermann_grid_illusion.svg.png",
+                description: "⬜ Illusion de Hermann : des points gris apparaissent aux intersections du quadrillage, mais ils disparaissent si tu fixes une intersection."
+            }
+        ];
+
+        function showIllusion() {
+            const i = Math.floor(Math.random() * illusions.length);
+            const illusion = illusions[i];
+            document.getElementById("illusionImage").src = illusion.image;
+            document.getElementById("illusionDescription").innerText = illusion.description;
+        }
     </script>
     <a href="index.html">Pour retourner à l'accueil.</a>
 </body>
