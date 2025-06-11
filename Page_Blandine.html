@@ -1,10 +1,89 @@
-<!DOCTYPE html> 
-<html> 
-    <head>
-    </head>
-    
-    <body>
-	<h1>Blandine</h1>
-	<a href="https://fr.wikipedia.org/wiki/Labrador_retriever"><img src="labrador.jpg"> </a>
-	</body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page de Blandine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #4B0082;
+            margin-top: 40px;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #4B0082;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .image-section {
+            margin: 30px 0;
+        }
+        img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: disc;
+            max-width: 400px;
+            margin: 0 auto 40px;
+            padding-left: 40px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Blandine</h1>
+
+    <div class="image-section">
+        <p>Voici mon animal préféré :</p>
+        <a href="https://fr.wikipedia.org/wiki/Labrador_retriever" target="_blank">
+            <img src="labrador.jpg" alt="Labrador Retriever">
+        </a>
+    </div>
+
+    <div class="image-section">
+        <p>Voici mon équipe :</p>
+        <a href="https://fr.wikipedia.org/wiki/Olympique_lyonnais" target="_blank">
+            <img src="ol.jpg" alt="OL">
+        </a>
+    </div>
+
+    <h2>Mes rêves :</h2>
+    <ul>
+        <li>Aller à Centrale Lyon déjà</li>   
+        <li>Faire un safari</li>
+        <li>Voyager</li>
+    </ul>
+	<div class="image-section">
+        
+        <a target="_blank">
+            <img src="voyage.jpg" alt="voyage">
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Blandine | Tous droits réservés</p>
+    </footer>
+</body>
 </html>
+
